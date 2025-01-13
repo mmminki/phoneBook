@@ -96,12 +96,11 @@ public class PhoneBookMain {
         for (int i = 0; i < phoneBook.toArray().length; i++){
             if(phoneBook.get(i).isNameEqual(name)){  // 삭제
                 phoneBook.remove(i);
-                break;
-            }
-            else {
-                System.out.println("해당 이름의 연락처가 없습니다.");
+                return;
             }
         }
+        System.out.println("해당 이름의 연락처가 없습니다.");
+
     }
 
 
