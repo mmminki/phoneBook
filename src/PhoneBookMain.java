@@ -47,8 +47,13 @@ public class PhoneBookMain {
     }
 
     public static void printAllInfo(ArrayList<Person> phoneBook){
-        for(Person i : phoneBook){
-            i.printInfo();
+        if(phoneBook.isEmpty()){
+            System.out.println("전화번호부가 비었습니다.");
+        }
+        else {
+            for (Person i : phoneBook) {
+                i.printInfo();
+            }
         }
     }
 
@@ -58,9 +63,14 @@ public class PhoneBookMain {
         String name = scanner.nextLine();
         System.out.print("전화번호: ");
         String phoneNumber = scanner.nextLine();
+        if(phoneNumber.charAt(3) == '-' && phoneNumber.charAt(8) == '-'){
+            Person newPerson = new Person(name, phoneNumber);
+            phoneBook.add(newPerson);
+        }
+        else{
+            System.out.println("유효하지 않은 전화번호입니다.");
+        }
 
-        Person newPerson = new Person(name, phoneNumber);
-        phoneBook.add(newPerson);
     }
 
     public static void searchByName(ArrayList<Person> phoneBook, String name){
