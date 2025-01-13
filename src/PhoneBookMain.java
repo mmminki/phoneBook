@@ -61,6 +61,12 @@ public class PhoneBookMain {
 
         System.out.print("이름: ");
         String name = scanner.nextLine();
+        for(Person p : phoneBook){
+            if(p.isNameEqual(name)){
+                System.out.println("이미 존재하는 이름입니다!");
+                return;
+            }
+        }
         System.out.print("전화번호: ");
         String phoneNumber = scanner.nextLine();
         if(phoneNumber.charAt(3) == '-' && phoneNumber.charAt(8) == '-'){
@@ -76,7 +82,7 @@ public class PhoneBookMain {
     public static void searchByName(ArrayList<Person> phoneBook, String name){
         boolean exist = false;
         for(Person p : phoneBook){  // 포함 구현해야함
-            if(p.isNameCorrect(name)){
+            if(p.isNameEqual(name)){
                 System.out.println(p.getPhoneNumber());
                 exist = true;
             }
@@ -88,7 +94,7 @@ public class PhoneBookMain {
 
     public static void deleatePerson(ArrayList<Person> phoneBook, String name){
         for (int i = 0; i < phoneBook.toArray().length; i++){
-            if(phoneBook.get(i).isNameCorrect(name)){  // 삭제
+            if(phoneBook.get(i).isNameEqual(name)){  // 삭제
                 phoneBook.remove(i);
                 break;
             }

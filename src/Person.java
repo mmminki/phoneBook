@@ -6,7 +6,6 @@ public class Person {
     private String phoneNumber;
 
     public Person(String name, String phoneNumber){
-        // invalid 전화번호 예외 처리 해야함
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
@@ -15,7 +14,7 @@ public class Person {
         System.out.println("이름: " + name + " 전화번호: " + phoneNumber);
     }
 
-    public boolean isNameCorrect(String name){
+    public boolean isNameEqual(String name){
         if(this.name.equals(name)){
             return true;
         }
