@@ -23,6 +23,14 @@ public class Person {
         }
     }
 
+    public boolean isNameContain(String name){
+        if(this.name.contains(name)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public String getPhoneNumber(){
         return phoneNumber;
     }

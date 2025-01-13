@@ -82,7 +82,7 @@ public class PhoneBookMain {
     public static void searchByName(ArrayList<Person> phoneBook, String name){
         boolean exist = false;
         for(Person p : phoneBook){  // 포함 구현해야함
-            if(p.isNameEqual(name)){
+            if(p.isNameContain(name)){
                 System.out.println(p.getPhoneNumber());
                 exist = true;
             }
