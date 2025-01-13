@@ -7,7 +7,7 @@ public class PhoneBookMain {
 
     public static void main(String[] args) {
 
-        ArrayList<Person> persons = new ArrayList<Person>();
+        ArrayList<Person> persons = new ArrayList<Person>();    // 이걸 그냥 전역으로 선언할까
 
         while (true) {
             System.out.println("=== 연락처 관리 프로그램 ===");
@@ -30,8 +30,17 @@ public class PhoneBookMain {
                 String inputName = scanner.nextLine();
                 searchByName(persons, inputName);
             }
-            else{
+            else if(inputNum == 4){
+                System.out.print("삭제할 이름: ");
+                String inputName = scanner.nextLine();
+                deleatePerson(persons, inputName);
+            }
+            else if(inputNum == 5){
+                System.out.println("종료합니다.");
                 break;
+            }
+            else{
+                System.out.println("번호를 잘못 입력했습니다. (1 ~ 5 입력만 유효합니다.");
             }
         }
 
@@ -66,4 +75,18 @@ public class PhoneBookMain {
             System.out.println("해당 이름의 연락처가 없습니다.");
         }
     }
+
+    public static void deleatePerson(ArrayList<Person> phoneBook, String name){
+        for (int i = 0; i < phoneBook.toArray().length; i++){
+            if(phoneBook.get(i).isNameCorrect(name)){  // 삭제
+                phoneBook.remove(i);
+                break;
+            }
+            else {
+                System.out.println("해당 이름의 연락처가 없습니다.");
+            }
+        }
+    }
+
+
 }
