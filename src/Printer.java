@@ -1,10 +1,8 @@
 package src;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Printer {
-    Scanner scanner = new Scanner(System.in);
     public void printUI() {
             System.out.println("=== 연락처 관리 프로그램 ===");
             System.out.println("1. 새 연락처 추가");
